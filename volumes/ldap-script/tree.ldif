@@ -1,0 +1,100 @@
+# Definir la base del árbol LDAP
+dn: dc=valhalla,dc=es
+objectClass: top
+objectClass: dcObject
+objectClass: organization
+o: Valhalla
+dc: valhalla
+
+# Definir la unidad organizativa para los usuarios
+dn: ou=People,dc=valhalla,dc=es
+objectClass: top
+objectClass: organizationalUnit
+ou: People
+
+# Definir la unidad organizativa para los grupos
+dn: ou=Groups,dc=valhalla,dc=es
+objectClass: top
+objectClass: organizationalUnit
+ou: Groups
+
+# Definir el grupo de usuarios
+dn: cn=valhallagroup,ou=Groups,dc=valhalla,dc=es
+objectClass: top
+objectClass: posixGroup
+cn: valhallagroup
+gidNumber: 10000
+
+# Definir el usuario odin
+dn: uid=odin,ou=People,dc=valhalla,dc=es
+objectClass: top
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: Odin
+sn: Allfather
+uid: odin
+uidNumber: 1001
+gidNumber: 12
+homeDirectory: /var/mail/valhalla.es/odin
+loginShell: /bin/bash
+gecos: Odin, Allfather
+mail: odin@valhalla.es
+userPassword: {SSHA}Gi7tTQX13olhvCPxRlFOiSGmktyUwuaP
+
+# Definir el usuario thor
+dn: uid=thor,ou=People,dc=valhalla,dc=es
+objectClass: top
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: Thor
+sn: Thunder
+uid: thor
+uidNumber: 1002
+gidNumber: 12
+homeDirectory: /var/mail/valhalla.es/thor
+loginShell: /bin/bash
+gecos: Thor, Thunder
+mail: thor@valhalla.es
+userPassword: {SSHA}HvhjujF0pw0Vp6MiWH6tUaW1ssVaiGzK
+
+# Definir el usuario loki
+dn: uid=loki,ou=People,dc=valhalla,dc=es
+objectClass: top
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: Loki
+sn: Trickster
+uid: loki
+uidNumber: 1003
+gidNumber: 12
+homeDirectory: /var/mail/valhalla.es/loki
+loginShell: /bin/bash
+gecos: Loki, Trickster
+mail: loki@valhalla.es
+userPassword: {SSHA}rK2qPHpVHjebEUMsqGq1LHV5kxjnBsPt
+
+dn: cn=awx,ou=Groups,dc=valhalla,dc=es
+objectClass: posixGroup
+objectClass: top
+cn: awx
+gidNumber: 10001
+memberUid: uid=odin,ou=people,dc=valhalla,dc=es
+memberUid: uid=thor,ou=people,dc=valhalla,dc=es
+
+dn: cn=superusers,ou=Groups,dc=valhalla,dc=es
+objectClass: posixGroup
+objectClass: top
+cn: superusers
+gidNumber: 10002
+memberUid: uid=odin,ou=people,dc=valhalla,dc=es
+
+dn: cn=viewers,ou=Groups,dc=valhalla,dc=es
+objectClass: posixGroup
+objectClass: top
+cn: viewers
+gidNumber: 10003
+memberUid: uid=thor,ou=people,dc=valhalla,dc=es
+

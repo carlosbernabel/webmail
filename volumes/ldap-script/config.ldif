@@ -1,0 +1,10 @@
+dn:  olcDatabase={1}mdb,cn=config
+changetype: modify
+replace: olcSuffix
+olcSuffix: dc=valhalla,dc=es
+-
+replace: olcRootDN
+olcRootDN: cn=admin,dc=valhalla,dc=es
+-
+replace: olcRootPW
+olcRootPW: {SSHA}zkvScLCqDIRSWVMJJKjwRQnWTnkCBhJ3
