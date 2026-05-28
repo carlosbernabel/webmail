@@ -1,2 +1,2 @@
 # webmail
-Projecto de webmail (Postfix, Courier, openldap, roundcube, mysql)
+Projecto de webmail (Postfix, Dovecot, Openldap, Roundcube, Mysql)
